@@ -1,0 +1,28 @@
+{
+  // Cloudflare Workers configuration — only used for the Workers deployment path.
+  //
+  // This site is a Next.js STATIC EXPORT. Do not use the OpenNext adapter
+  // (`opennextjs-cloudflare`); it is for server-rendered Next.js and will fail
+  // here with "Couldn't find any `pages` or `app` directory" or similar, because
+  // there is no server build for it to transform.
+  //
+  // Deploy with:
+  //   npm run build && npx wrangler deploy
+  //
+  // Secrets (never put them in this file):
+  //   npx wrangler secret put GHL_WEBHOOK_URL
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "lenonmagwenjere",
+  "main": "worker/index.ts",
+  "compatibility_date": "2026-07-29",
+  "assets": {
+    // The Next.js static export. Requests matching a file here are served
+    // directly and never invoke the Worker.
+    "directory": "./out",
+    "binding": "ASSETS",
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
+}

@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Self-hosted so the site has no third-party font dependency: faster first
+   paint, no Google request, and it still renders where Google is blocked. */
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/fonts/InstrumentSerif-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Instrument Serif';
+  src: url('/fonts/InstrumentSerif-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-Variable.woff2') format('woff2-variations');
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+@layer base {
+  :root {
+    --rule: #ded6c9;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+    font-feature-settings: 'kern' 1, 'liga' 1;
+  }
+
+  ::selection {
+    background: #a8763e;
+    color: #f7f4ef;
+  }
+
+  /* Visible keyboard focus everywhere, never removed. */
+  :focus-visible {
+    outline: 2px solid #a8763e;
+    outline-offset: 3px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display font-normal;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+@layer components {
+  /* ── Eyebrow: tracked caps used as a structural label, not decoration ── */
+  .eyebrow {
+    @apply font-sans text-[0.6875rem] font-medium uppercase tracking-[0.22em] text-stone;
+  }
+
+  /* ── Hairline rules: the page's only divider vocabulary ── */
+  .rule {
+    @apply h-px w-full bg-edge;
+  }
+
+  .rule-ink {
+    @apply h-px w-full bg-ink/15;
+  }
+
+  /* ── Plate: the signature device. Every image on this site is an editorial
+        plate with a caption underneath, so unshot photography reads as a
+        commissioned slot rather than a broken layout. ── */
+  .plate {
+    @apply relative flex items-center justify-center overflow-hidden border border-edge bg-paper-dim;
+  }
+
+  .plate-label {
+    @apply max-w-[26ch] px-6 text-center font-sans text-[0.6875rem] uppercase leading-relaxed tracking-[0.18em] text-stone;
+  }
+
+  .caption {
+    @apply mt-3 font-display text-[0.9375rem] italic leading-snug text-stone;
+  }
+
+  /* ── Editorial link: underline grows on hover instead of appearing ── */
+  .link-editorial {
+    @apply relative inline-block text-ink no-underline transition-colors hover:text-bronze;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 1px;
+    padding-bottom: 2px;
+  }
+
+  .prose-editorial p {
+    @apply text-[1.0625rem] leading-[1.75] text-ink-soft;
+  }
+
+  .prose-editorial p + p {
+    @apply mt-5;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Single orchestrated load sequence on the title page. Nothing else animates. */
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}

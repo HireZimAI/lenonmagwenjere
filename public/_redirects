@@ -1,0 +1,40 @@
+# Cloudflare Pages redirect map.
+#
+# This site is a static export, so there is no server to handle redirects — this
+# file is the only mechanism. It is copied into the build output automatically
+# because it lives in /public.
+#
+# Syntax:  <from>  <to>  <status>
+# Rules are evaluated top to bottom. First match wins. Limit: 2,100 rules.
+# Splats (/blog/*) and placeholders (/:slug) are supported.
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# BEFORE LAUNCH: inventory the URLs the old site actually had, then map each one.
+#
+# How to get that list:
+#   1. Google Search Console -> Indexing -> Pages -> "Indexed" (export the table)
+#   2. Your current host's page list (GHL funnels, Wix pages, etc.)
+#   3. Any link-in-bio or QR codes already printed or posted on LinkedIn
+#
+# Every old URL that has ever been shared needs a line here. A 301 keeps the
+# search equity and stops anyone who saved the link from hitting a 404.
+# ─────────────────────────────────────────────────────────────────────────────
+
+# ── EXAMPLES — replace these with real old paths, do not ship as-is ──────────
+# /home                     /            301
+# /about-me                 /about/      301
+# /services                 /advisory/   301
+# /consulting               /advisory/   301
+# /book                     /books/      301
+# /from-africa-to-everywhere /books/     301
+# /work-with-me             /contact/    301
+# /booking                  /contact/    301
+# /links                    /            301
+
+# ── Old funnel or campaign paths, if any survive ─────────────────────────────
+# /funnel/*                 /contact/    301
+# /lp/*                     /            301
+
+# ── Anything genuinely gone with no equivalent: let it 404 rather than
+#    redirecting it to the homepage. A soft 404 to home is worse for search
+#    than an honest 404, and it confuses the visitor.
