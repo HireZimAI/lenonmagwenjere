@@ -12,7 +12,7 @@
   // Secrets (never put them in this file):
   //   npx wrangler secret put GHL_WEBHOOK_URL
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "lenonmagwenjere",
+  "name": "lenonmagwenjerewebsite",
   "main": "worker/index.ts",
   "compatibility_date": "2026-07-29",
   "assets": {

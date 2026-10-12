@@ -15,10 +15,10 @@ export type Book = {
 };
 
 /**
- * G.A.M.E.™ — verified against governingtheaimachine.com.
+ * G.A.M.E.™ - verified against governingtheaimachine.com.
  * Guardrails / Authority / Monitoring / Enablement.
  * The manuscript and the book site are the single source of truth. Earlier internal
- * documents using "Governance, Automation, Measurement, Enablement" are incorrect —
+ * documents using "Governance, Automation, Measurement, Enablement" are incorrect -
  * do not reintroduce that wording anywhere on this site.
  */
 export const gameFramework = [
@@ -55,7 +55,7 @@ export const books: Book[] = [
       'Most organisations are adopting AI without a coherent governance strategy. This book is the correction.',
     body: [
       'AI is reshaping every boardroom and every operating model, and most boards are being asked to approve things they cannot yet describe. Governing the AI Machine gives directors, executives, and risk leaders a structure for that conversation.',
-      'It is written for the people who carry the accountability rather than the people who write the code — and it treats governance as the thing that lets an organisation move faster, not the thing that slows it down.',
+      'It is written for the people who carry the accountability rather than the people who write the code - and it treats governance as the thing that lets an organisation move faster, not the thing that slows it down.',
     ],
     learn: [
       'How to build an enterprise-wide AI governance structure that holds up in practice',
@@ -71,11 +71,11 @@ export const books: Book[] = [
   {
     slug: 'from-africa-to-everywhere',
     title: 'From Africa to Everywhere',
-    subtitle: 'Dreaming Beyond Limits — My Entrepreneurial Playbook',
+    subtitle: 'Dreaming Beyond Limits - My Entrepreneurial Playbook',
     status: 'published',
     authors: 'Lenon Magwenjere',
     blurb:
-      'The route from modest roots in Zimbabwe to businesses serving customers across Africa and the United States — including the failures that cost the most.',
+      'The route from modest roots in Zimbabwe to businesses serving customers across Africa and the United States - including the failures that cost the most.',
     body: [
       'A memoir that works like a playbook. Lenon writes about the small risky steps, the stumbles that hurt, the quiet breakthroughs, and the faith that held when nothing else did.',
       'It is written for anyone building from a place the market underestimates: how to turn your own story into a commercial asset, how to recover from a failure large enough to end you, and what actually has to be true to build something that lasts in both local and global markets.',
@@ -86,9 +86,29 @@ export const books: Book[] = [
       'Building, scaling, and sustaining a purpose-driven business',
       'The mindset shifts that separate local operators from global ones',
     ],
-    // Multiple ASINs exist across editions and marketplaces — this is the one Lenon supplied.
+    // Multiple ASINs exist across editions and marketplaces - this is the one Lenon supplied.
     // Tracking parameters stripped: they are session artefacts and should never ship in a link.
     buyHref: 'https://www.amazon.com/dp/B0FVNWWBYH',
     cover: '/cover-from-africa.jpg',
   },
+  {
+  "slug": "the-ai-bridge",
+  "title": "The AI Bridge",
+  "subtitle": "Crossing the Divide from AI Confusion to AI Confidence",
+  "status": "published",
+  "authors": "Lenon Magwenjere",
+  "blurb": "A practical starting point for people who want to understand AI and use it with confidence, without becoming technical experts.",
+  "body": [
+    "AI is changing how we work, learn, and make decisions. The AI Bridge is for anyone who wants to understand what it can do, where it falls short, and how to use it thoughtfully in everyday life and work.",
+    "Through the BRIDGE framework and practical exercises, you will learn to ask better questions, check the answers, protect your information, and keep your own judgment. No technical background is required."
+  ],
+  "learn": [
+    "Understand AI without getting lost in jargon",
+    "Ask better questions and check the answers you receive",
+    "Use AI in everyday life and work while protecting your information"
+  ],
+  "siteHref": "https://theaibridge.org",
+  "buyHref": "https://www.amazon.com/dp/B0HLWFLJL3",
+  "cover": "/cover-ai-bridge.jpg"
+},
 ];

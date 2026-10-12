@@ -26,14 +26,15 @@ export default function InquiryForm({
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (process.env.NEXT_PUBLIC_PREVIEW_MODE === 'true') { setStatus('error'); setMessage('Preview only. This form does not send enquiries.'); return; }
     const data = Object.fromEntries(new FormData(e.currentTarget).entries());
 
     setStatus('sending');
     try {
       const res = await fetch(site.formEndpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, source: 'lenonmagwenjere.com' }),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ ...data, _subject: `Personal website enquiry: ${data.type || 'General'}`, source: 'lenonmagwenjere.com' }),
       });
       const result = (await res.json().catch(() => null)) as { error?: string } | null;
       if (!res.ok) {
@@ -59,10 +60,9 @@ export default function InquiryForm({
     return (
       <div className="border border-bronze bg-paper-dim p-8 md:p-10">
         <p className="eyebrow text-bronze">Received</p>
-        <h3 className="mt-4 font-display text-3xl leading-tight">Thank you — this is with Lenon.</h3>
+        <h3 className="mt-4 font-display text-3xl leading-tight">Thank you. Your enquiry has been sent.</h3>
         <p className="mt-4 max-w-measure text-[1.0625rem] leading-relaxed text-ink-soft">
-          You will get a reply within two business days. If the matter is time-sensitive, reply to the
-          confirmation email and say so in the subject line.
+          If it is time-sensitive, you can also email Lenon directly.
         </p>
       </div>
     );
@@ -162,8 +162,8 @@ export default function InquiryForm({
 
       {/* Honeypot. Hidden from people, irresistible to bots. */}
       <div aria-hidden="true" className="absolute left-[-9999px] h-0 w-0 overflow-hidden">
-        <label htmlFor="_confirm">Leave this field empty</label>
-        <input id="_confirm" name="_confirm" type="text" tabIndex={-1} autoComplete="off" />
+        <label htmlFor="_gotcha">Leave this field empty</label>
+        <input id="_gotcha" name="_gotcha" type="text" tabIndex={-1} autoComplete="off" />
       </div>
 
       <div className="flex flex-wrap items-center gap-6 pt-2">
@@ -174,7 +174,7 @@ export default function InquiryForm({
         >
           {status === 'sending' ? 'Sending…' : 'Send inquiry'}
         </button>
-        <p className="text-[0.8125rem] text-stone">Replies within two business days.</p>
+        <p className="text-[0.8125rem] text-stone">Please do not include passwords, financial account details, or confidential records in this form.</p>
       </div>
 
       {status === 'error' && (

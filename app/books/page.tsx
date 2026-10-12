@@ -7,24 +7,23 @@ import { site } from '@/data/site';
 export const metadata: Metadata = {
   title: 'Books',
   description:
-    'Governing the AI Machine — the G.A.M.E. framework for enterprise risk and board accountability — co-authored by Lenon Magwenjere and Billy Sticker.',
+    'Books by Lenon Magwenjere: The AI Bridge, Governing the AI Machine, and From Africa to Everywhere. AI literacy, governance, and entrepreneurship.',
   alternates: { canonical: '/books' },
 };
 
 const bookSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Book',
-  name: 'Governing the AI Machine',
-  author: [
-    { '@type': 'Person', name: 'Lenon Magwenjere' },
-    { '@type': 'Person', name: 'Billy Sticker' },
-  ],
-  about: 'AI governance, enterprise risk management, board accountability',
-  url: `${site.url}/books/`,
+  '@graph': books.map(book => ({
+    '@type': 'Book', name: book.title, description: book.blurb,
+    author: book.authors.split(' & ').map(name => ({ '@type': 'Person', name })),
+    url: book.siteHref ?? `${site.url}/books/`,
+    image: `${site.url}${book.cover}`,
+    sameAs: book.buyHref,
+  })),
 };
 
 export default function Books() {
-  const [primary, second] = books;
+  const [primary, second, bridge] = books;
 
   return (
     <>
@@ -32,9 +31,32 @@ export default function Books() {
 
       <PageTitle
         eyebrow="Books"
-        title="Two books, two audiences."
-        intro="One for the boardroom, written with Billy Sticker, about governing systems you did not build and cannot fully see. One written alone, about getting from a village in Zimbabwe to a business that serves two continents."
+        title="Three books. Different starting points."
+        intro="AI governance for the boardroom. AI confidence for everyday life. An entrepreneurial playbook for building beyond your starting point."
       />
+
+      {/* The AI Bridge: draft addition, awaiting review */}
+      <Section className="border-t border-edge">
+        <div id="the-ai-bridge" className="grid gap-14 md:grid-cols-[1fr_1.5fr] md:gap-20">
+          <div className="space-y-8">
+            <Plate src={bridge.cover} alt="The AI Bridge book cover" label="" caption="Available now." ratio="aspect-[2/3]" />
+            <div className="flex flex-col gap-4">
+              <ButtonPrimary href={bridge.buyHref!} external>Buy on Amazon</ButtonPrimary>
+              <ButtonGhost href={bridge.siteHref!} external>Explore the Book &amp; Resources</ButtonGhost>
+            </div>
+          </div>
+          <div>
+            <Eyebrow>AI literacy · Published</Eyebrow>
+            <h2 className="mt-5 text-4xl leading-[1.06] md:text-5xl">{bridge.title}</h2>
+            <p className="mt-4 font-display text-xl italic text-stone">{bridge.subtitle}</p>
+            <p className="eyebrow mt-4">{bridge.authors}</p>
+            <div className="prose-editorial mt-8 max-w-measure">{bridge.body.map(p => <p key={p.slice(0,24)}>{p}</p>)}</div>
+            <h3 className="mt-12 font-display text-3xl">A more confident start with AI</h3>
+            <ul className="mt-6 space-y-3">{bridge.learn!.map(l => <li key={l} className="flex gap-3 text-[1.0625rem] leading-relaxed text-ink-soft"><span aria-hidden="true" className="mt-3.5 h-px w-5 shrink-0 bg-bronze" />{l}</li>)}</ul>
+            <p className="mt-8 max-w-measure text-[0.9375rem] leading-relaxed text-stone">Prefer to listen or learn by doing? The book site also has an AI-narrated audiobook, a free starter course, and group masterclass enquiries.</p>
+          </div>
+        </div>
+      </Section>
 
       {/* ── Primary book ───────────────────────────────────────── */}
       <Section>
@@ -139,11 +161,11 @@ export default function Books() {
       </Section>
 
       <CTA
-        eyebrow="Bulk and corporate"
-        title="Running this with your board?"
-        body="Bulk orders, board reading programmes, and governance workshops built around the framework are all available. Tell me the size of the group and the timeline."
+        eyebrow="Read and learn together"
+        title="Bring the books to your group."
+        body="Board reading programmes, AI-literacy masterclasses, or books for your team. Tell me who the group is, what you want to achieve, and your timeline."
         primary={{ href: '/contact', label: 'Enquire About Bulk Orders' }}
-        secondary={{ href: '/speaking', label: 'Book a Governance Workshop' }}
+        secondary={{ href: '/speaking', label: 'Explore Speaking & Workshops' }}
       />
     </>
   );

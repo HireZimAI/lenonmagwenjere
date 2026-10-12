@@ -5,16 +5,12 @@ export const site = {
   roles: ['Entrepreneur', 'Strategic Advisor', 'Author', 'Builder'],
   creditStrip: 'Entrepreneur · Strategic Advisor · Author · Podcast Host · AI Governance Advocate',
   tagline: 'Building businesses, systems, and ideas that create meaningful impact.',
-  // Kept in sync with `positioning` in data/story.ts — this is the meta-description
+  // Kept in sync with `positioning` in data/story.ts - this is the meta-description
   // and JSON-LD version of the same claim.
   shortBio:
-    'Lenon Magwenjere is an entrepreneur, strategic advisor, and author who combines four capabilities rarely found together: identifying opportunity, developing business, managing risk, and building the systems required to execute. He builds and advises companies across the United States and Africa.',
-  /**
-   * Same-origin endpoint handled by functions/api/enquiry.ts, which forwards to
-   * the CRM server-side. No CORS problem, and the webhook URL stays secret.
-   * Override only if you replace the Pages Function with a third-party service.
-   */
-  formEndpoint: process.env.NEXT_PUBLIC_FORM_ENDPOINT ?? '/api/enquiry',
+    "Lenon Magwenjere is an entrepreneur, co-founder of HireZim AI, author, and host of The Builder's Handbook. His work spans practical AI, business growth, travel, and media, with a background in risk management and financial services.",
+  // Enquiries use the same Formspree inbox as The AI Bridge.
+  formEndpoint: 'https://formspree.io/f/meaoywnq',
   // Used for speaking, podcast, and media enquiries, where a long form loses inbound.
   directEmail: 'lenon@lenonmagwenjere.com',
 
@@ -22,7 +18,7 @@ export const site = {
    * Booking calendar for high-intent advisory conversations.
    *
    * Currently a GoHighLevel calendar behind a hirezim.ai path, which redirects to
-   * api.leadconnectorhq.com — so the visitor's URL bar leaves this brand twice in
+   * api.leadconnectorhq.com - so the visitor's URL bar leaves this brand twice in
    * one click.
    *
    * Recommended fix: point `call.lenonmagwenjere.com` at GoHighLevel as a custom
@@ -38,13 +34,14 @@ export const nav = [
   { label: 'Advisory', href: '/advisory' },
   { label: 'Speaking', href: '/speaking' },
   { label: 'Books', href: '/books' },
+  { label: 'Contact', href: '/contact' },
 ] as const;
 
 export const social = [
   { label: 'LinkedIn', href: '#', note: '[ADD SOCIAL PROFILE URL]' },
   { label: 'YouTube', href: '#', note: '[ADD SOCIAL PROFILE URL]' },
   { label: 'Instagram', href: '#', note: '[ADD SOCIAL PROFILE URL]' },
-  { label: 'X', href: '#', note: '[ADD SOCIAL PROFILE URL — omit if unused]' },
+  { label: 'X', href: '#', note: '[ADD SOCIAL PROFILE URL - omit if unused]' },
 ] as const;
 
 export const externalSites = {

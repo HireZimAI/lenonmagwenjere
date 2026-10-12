@@ -3,11 +3,11 @@
  *
  * Two distinct slots, deliberately kept separate:
  *
- *  - `ambientLoop` — a short, silent, looping clip used as atmosphere. It shows
+ *  - `ambientLoop` - a short, silent, looping clip used as atmosphere. It shows
  *    that Lenon works live stages. It is NOT presented as a showreel, because a
  *    clip with no audio proves nothing about how he speaks.
  *
- *  - `showreel` — the real thing: 60–90 seconds WITH sound, hosted on YouTube or
+ *  - `showreel` - the real thing: 60–90 seconds WITH sound, hosted on YouTube or
  *    Vimeo. Set `youtubeId` and the page swaps the placeholder for a player.
  *    Do not self-host this. Cloudflare Pages serves a flat file with no adaptive
  *    bitrate, so a visitor on a poor mobile connection downloads the whole thing.

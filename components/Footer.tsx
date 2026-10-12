@@ -26,7 +26,7 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
-              <li>
+              <li className="hidden">
                 <Link href="/contact" className="text-paper/75 transition-colors hover:text-bronze-light">
                   Contact
                 </Link>
@@ -52,6 +52,12 @@ export default function Footer() {
                   Governing the AI Machine
                 </a>
               </li>
+              <li>
+                <a href="https://theaibridge.org" target="_blank" rel="noreferrer" className="text-paper/75 transition-colors hover:text-bronze-light">
+                  The AI Bridge
+                </a>
+              </li>
+              <li><a href="https://growithkurasystems.com" target="_blank" rel="noreferrer" className="text-paper/75">Kura Growth Systems</a></li>
             </ul>
             {/* A dead social link is worse than an absent one, so unset profiles
                 are dropped from the production footer entirely. */}

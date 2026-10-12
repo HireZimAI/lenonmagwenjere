@@ -1,6 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+@config "../tailwind.config.ts";
 
 /* Self-hosted so the site has no third-party font dependency: faster first
    paint, no Google request, and it still renders where Google is blocked. */

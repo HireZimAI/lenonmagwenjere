@@ -1,7 +1,7 @@
 export const speakingTopics = [
   {
     title: 'Governing the AI Machine',
-    body: 'What a board is actually accountable for once AI is inside the operating model — and the four disciplines that make that accountability workable.',
+    body: 'What a board is actually accountable for once AI is inside the operating model - and the four disciplines that make that accountability workable.',
     audience: 'Boards, executive teams, risk and compliance leaders',
   },
   {
@@ -40,8 +40,8 @@ export const speakingTopics = [
     audience: 'Founders, incubators, entrepreneurship programmes',
   },
   {
-    title: 'Teaching AI Ethics to People Who Write No Code',
-    body: 'Drawn from the graduate course Lenon teaches: how to reason about accountability, consent, and harm in AI systems without a technical vocabulary \u2014 and why that is the only version of AI ethics that reaches the people who make the decisions.',
+    title: 'Responsible AI for People Who Write No Code',
+    body: 'How to think about privacy, accuracy, accountability, and harm when using AI, without needing a technical background.',
     audience: 'Boards, non-technical leadership teams, educators, mission-driven organisations',
   },
   {
@@ -62,68 +62,68 @@ export const speakingFormats = [
 
 /**
  * Employment history. Dates taken from Lenon's LinkedIn profile export, July 2026.
- * Two entries carry FLAGS — see notes. Everything else is verified.
+ * Two entries carry FLAGS - see notes. Everything else is verified.
  */
 export type Post = { period: string; org: string; role: string; place?: string; note?: string };
 
 export const timeline: Post[] = [
   {
-    period: 'Feb 2024 — present',
+    period: 'Feb 2024 - present',
     org: 'HireZim AI',
     role: 'Co-Founder & Managing Director',
     place: 'Houston, Texas',
   },
   {
-    period: 'Oct 2017 — present',
+    period: 'Oct 2017 - present',
     org: 'ASAP Travel Africa',
     role: 'Founder & Chairman',
     place: 'Zimbabwe & South Africa',
   },
   {
-    period: 'Feb 2019 — Feb 2025',
+    period: 'Feb 2019 - Feb 2025',
     org: 'Virtual Pro Solutions',
     role: 'Senior Consultant, then Lead Business Consultant',
     place: 'Harare, then Houston',
     note: 'International risk, IP regulation and structure for multinational clients.',
   },
   {
-    period: 'Sep 2017 — Aug 2022',
+    period: 'Sep 2017 - Aug 2022',
     org: 'Zimnat',
     role: 'Special Channels Manager, then Bancassurance & Alternative Distribution Manager',
     place: 'Harare',
     note: 'Built the risk framework governing every strategic alliance, and ran distribution partnerships with banks, brokers, and manufacturers.',
   },
   {
-    period: 'Mar 2015 — Aug 2017',
+    period: 'Mar 2015 - Aug 2017',
     org: 'Standard Chartered Bank',
     role: 'Wealth Management Specialist',
     place: 'Harare',
     note: 'Business insurance placement and renewals for banking clients; coverage, limits, and retention recommendations.',
   },
   {
-    period: 'Apr 2014 — Feb 2015',
+    period: 'Apr 2014 - Feb 2015',
     org: 'Old Mutual',
     role: 'Financial Advisor',
     place: 'Harare',
   },
   {
-    period: 'Feb 2013 — Feb 2014',
+    period: 'Feb 2013 - Feb 2014',
     org: 'Hereford Group',
     role: 'Risk Compliance Officer',
     place: 'Johannesburg',
     note: 'Client onboarding compliance, internal controls, and risk reviews.',
   },
   {
-    period: 'Apr 2012 — Feb 2014',
+    period: 'Apr 2012 - Feb 2014',
     org: 'Liberty Group South Africa',
     role: 'Financial Advisor',
     place: 'Johannesburg',
     // FLAG: this overlaps Hereford Group by a full twelve months, both in Johannesburg.
-    // Either the dates need correcting or one was concurrent — decide before launch,
+    // Either the dates need correcting or one was concurrent - decide before launch,
     // because a reader checking the timeline will notice.
   },
   {
-    period: '2009 — 2011',
+    period: '2009 - 2011',
     org: 'Absa',
     role: 'Team Leader, Absa Broker Academy',
     place: 'Pretoria',
@@ -132,7 +132,7 @@ export const timeline: Post[] = [
     // roughly three years and eight months. Year-only dates are the likely cause.
   },
   {
-    period: 'Mar 2008 — Sep 2009',
+    period: 'Mar 2008 - Sep 2009',
     org: 'Absa',
     role: 'Intern',
     place: 'Johannesburg',
@@ -156,11 +156,6 @@ export const currentRoles = [
   {
     role: 'Host',
     org: "The Builder's Handbook",
-  },
-  {
-    role: 'Lecturer, AI Ethics',
-    org: 'NOLA College',
-    note: 'Teaching AI ethics to graduate theology students.',
   },
 ];
 
@@ -207,11 +202,11 @@ export const education: Qualification[] = [
     award: 'Bachelor\u2019s degree in Risk Management',
     institution: 'University of South Africa (UNISA)',
     status: 'awarded',
-    note: '[CONFIRM EXACT AWARD TITLE AND YEARS from the certificate — a third-party register lists it as a BCom, 2007\u20132012.]',
+    note: '[CONFIRM EXACT AWARD TITLE AND YEARS from the certificate - a third-party register lists it as a BCom, 2007\u20132012.]',
   },
   {
     // Title confirmed by Lenon, July 2026. SAQA ID 86806.
-    // NOT YET AWARDED — studies ongoing as of July 2026.
+    // NOT YET AWARDED - studies ongoing as of July 2026.
     // Never render as "International Marketing" (no such IMM award exists) and
     // never render without the in-progress label.
     award: 'Master of Philosophy (MPhil) in Marketing',
@@ -222,47 +217,29 @@ export const education: Qualification[] = [
 ];
 
 export const credentials = [
-  'Fourteen years in financial services across South Africa and Zimbabwe, 2008\u20132022 \u2014 banking, insurance, wealth management, and enterprise risk',
+  'Fourteen years in financial services across South Africa and Zimbabwe, 2008\u20132022 - banking, insurance, wealth management, and enterprise risk',
   'Co-author, Governing the AI Machine',
   'Author, From Africa to Everywhere',
+  'Author, The AI Bridge',
 ];
 
-/**
- * Teaching and formation. Held separately from `education` on purpose.
- *
- * The lectureship is the strongest item here and the most under-used fact in
- * Lenon's whole public record: he teaches AI ethics to graduate students who
- * carry moral responsibility and have no technical background. That is a
- * checkable proof of the exact claim Governing the AI Machine makes.
- *
- * Framing rule: lead with the teaching, not the seminary. A corporate buyer
- * skimming this page should read "he teaches AI ethics at graduate level",
- * not "he is a pastor who is interested in AI".
- */
+/** Practical AI learning alongside the books. */
 export type Teaching = { role: string; org: string; body: string; buildNote?: string };
 
 export const teaching: Teaching[] = [
   {
-    role: 'Lecturer, AI Ethics',
-    org: 'NOLA College',
-    body:
-      'Designed and delivers an AI ethics course for graduate theology students \u2014 people who will carry moral responsibility for decisions made with tools they did not build. It is the hardest audience to teach this to, and the best test of whether the material actually works.',
+    role: 'The AI Bridge',
+    org: 'Books and practical AI learning',
+    body: 'A practical starting point for understanding AI, recognising its limits, and using it with your own judgment.',
   },
   {
-    role: 'Advanced course in Transformational Leadership',
-    org: 'NOLA College',
-    // buildNote fields are shown in dev only; `body` is what a visitor reads.
-    body: 'Formal study in transformational leadership alongside the teaching work.',
-    buildNote: 'Confirm exact certificate wording and year before launch.',
+    role: 'Free starter course',
+    org: 'The AI Bridge',
+    body: 'Self-paced lessons and exercises for people beginning to use AI in everyday life and work.',
   },
   {
-    role: 'Senior Program Coordinator',
-    org: 'The Empower Circle',
-    body: 'Part-time since March 2017.',
-  },
-  {
-    role: 'Bible teacher',
-    org: 'Local church, Houston',
-    body: 'Regular teaching ministry alongside the commercial work.',
+    role: 'Group masterclasses',
+    org: 'The AI Bridge',
+    body: 'Practical AI learning for companies, schools, universities, and churches, shaped around the needs of the group.',
   },
 ];

@@ -22,7 +22,7 @@ export const practices = [
   {
     title: 'BPO and global talent',
     body:
-      'How to build offshore and nearshore capability that clients never notice — because the output is indistinguishable from local.',
+      'How to build offshore and nearshore capability that clients never notice - because the output is indistinguishable from local.',
   },
   {
     title: 'Africa and cross-border expansion',
@@ -59,7 +59,7 @@ export const process = [
   },
   {
     step: 'Diagnose',
-    body: 'An honest read of current state — capability, data, process, people, and risk exposure.',
+    body: 'An honest read of current state - capability, data, process, people, and risk exposure.',
   },
   {
     step: 'Design',

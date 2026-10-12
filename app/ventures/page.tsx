@@ -1,63 +1,6 @@
-import type { Metadata } from 'next';
-import { Eyebrow, Section, PageTitle } from '@/components/Primitives';
-import VentureTable from '@/components/VentureTable';
+import { Eyebrow, Plate, Section, PageTitle, ButtonPrimary, ButtonGhost } from '@/components/Primitives';
 import CTA from '@/components/CTA';
-import { ventures } from '@/data/ventures';
-
-export const metadata: Metadata = {
-  title: 'Ventures',
-  description:
-    'Veneka Group, HireZim AI, ASAP Travel Africa, and The Builder\u2019s Handbook — the companies Lenon Magwenjere builds and operates across the United States and Africa.',
-  alternates: { canonical: '/ventures' },
-};
-
-export default function Ventures() {
-  return (
-    <>
-      <PageTitle
-        eyebrow="Ventures"
-        title="Four companies, built for different reasons."
-        intro="These are separate businesses with their own teams, clients, and economics. They are not a portfolio in the investor sense — each one exists because a problem needed an operator rather than an opinion."
-      />
-
-      <Section>
-        <VentureTable items={ventures} expanded />
-        <p className="mt-12 max-w-measure text-[0.9375rem] leading-relaxed text-stone">
-          Veneka Group holds ASAP Travel Africa and The Builder&rsquo;s Handbook outright, and a
-          co-founding stake in HireZim AI alongside Billy Sticker.
-        </p>
-      </Section>
-
-      <Section dark className="border-t border-ink">
-        <div className="grid gap-14 md:grid-cols-[1fr_1.3fr] md:gap-20">
-          <div>
-            <Eyebrow className="text-bronze-light">The connective tissue</Eyebrow>
-            <h2 className="mt-6 text-4xl leading-[1.06] md:text-5xl">
-              Why an AI firm and a car rental company belong to the same person.
-            </h2>
-          </div>
-          <div className="prose-editorial max-w-measure self-center">
-            <p className="text-paper/70">
-              A fair question, and one worth answering directly. These businesses share a supply side:
-              African talent, African operations, and clients who are mostly not in Africa. Running a
-              travel company in Harare taught me things about logistics, trust, and follow-through that
-              I use every week in a business that deploys AI for agencies in Texas.
-            </p>
-            <p className="text-paper/70">
-              The other thing they share is a method. Diagnose before designing, design before deploying,
-              and stay accountable for execution after the invoice clears. That is what 3DX formalised,
-              and it applies to a fleet as much as to a governance programme.
-            </p>
-          </div>
-        </div>
-      </Section>
-
-      <CTA
-        eyebrow="Partnerships"
-        title="Building something adjacent?"
-        body="Venture opportunities, distribution partnerships, and joint work across African and global markets are all worth a conversation."
-        primary={{ href: '/contact', label: 'Start a Conversation' }}
-      />
-    </>
-  );
-}
+import { site } from '@/data/site';
+import {ventures} from '@/data/ventures';
+export const metadata={title:'Ventures',description:'AI implementation, growth systems, travel, and media: the businesses and platforms Lenon Magwenjere builds.',alternates:{canonical:'/ventures'}};
+export default function Ventures(){return <><PageTitle eyebrow="Ventures" title="The businesses and platforms I build." intro="AI implementation, growth systems, travel, and media. Each has a different job to do. Together they show the range of my work."/><Section><div className="grid gap-12 md:grid-cols-2">{ventures.map(v=><article key={v.slug} className="border-t border-edge pt-7"><Eyebrow>{v.line}</Eyebrow><h2 className="mt-5 text-4xl">{v.name}</h2><p className="mt-6 max-w-measure text-lg leading-relaxed text-stone">{v.body}</p><a className="link-editorial mt-6" href={v.href} target="_blank" rel="noreferrer">Explore {v.name}</a></article>)}</div></Section><Section className="border-t border-edge"><Eyebrow>The connection</Eyebrow><h2 className="mt-6 text-4xl md:text-5xl">Different markets. The same questions.</h2><p className="mt-7 max-w-measure text-lg leading-relaxed text-stone">What does the customer need? What has to work behind the scenes? What could go wrong? Those questions connect an AI system, a growth platform, and a travel business more clearly than a holding-company diagram.</p></Section><CTA title="Where does your work meet mine?" body="Distribution, delivery partnerships, or a new business idea. Tell me what you are building and where you see a fit." primary={{href:'/contact',label:'Start a Conversation'}}/></>}
